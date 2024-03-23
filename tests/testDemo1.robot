@@ -7,7 +7,7 @@ Validate unsuccessful login
     Open browser with app url
     Fill login form
     Wait until it checks and displays error message
-#    Validate error message is correct
+    Validate error message is correct
 
 *** Keywords ***
 Open browser with app url
@@ -22,4 +22,7 @@ Fill login form
     Click Button    id:signInBtn
 
 Wait until it checks and displays error message
+    Wait Until Element Is Visible    css:form[id='login-form'] [class*='alert alert-danger']
+
+Validate error message is correct
     Wait Until Element Contains    css:form[id='login-form'] [class*='alert alert-danger']    Incorrect username/password.
