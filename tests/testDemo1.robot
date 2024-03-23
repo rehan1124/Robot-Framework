@@ -1,38 +1,24 @@
 *** Settings ***
 Documentation    Test to validate Login page
 Library    SeleniumLibrary
-Test Setup    Open browser with app url
-Test Teardown    Close Browser
+Resource    resource.robot
+Test Setup    Open browser with app url    ${browser}
+Test Teardown    Close application
 
 *** Variables ***
 ${browser}    Chrome
-${appUrl}    https://rahulshettyacademy.com/loginpagePractise/
-${usernameId}    id:username
-${passwordId}    id:password
-${termsCheckboxId}    id:terms
-${signInBtnId}    id:signInBtn
-${errorMsgCss}    css:form[id='login-form'] [class*='alert alert-danger']
+${invalidUsername}    testuser1
+${invalidPassword}    testuser1
+${validUsername}    rahulshettyacademy
+${validPassword}    learning
+${errorMessage}    Incorrect username/password.
 
 *** Test Cases ***
 Validate unsuccessful login
-    Fill login form
+    Fill login form    ${invalidUsername}    ${invalidPassword}
     Wait until it checks and displays error message
-    Validate error message is correct
+    Validate error message is correct    ${errorMessage}
 
-*** Keywords ***
-Open browser with app url
-    Create Webdriver    ${browser}
-    Go To    ${appUrl}
-    Maximize Browser Window
-
-Fill login form
-    Input Text    ${usernameId}    testuser1
-    Input Password    ${passwordId}    testuser1
-    Select Checkbox    ${termsCheckboxId}
-    Click Button    ${signInBtnId}
-
-Wait until it checks and displays error message
-    Wait Until Element Is Visible    ${errorMsgCss}
-
-Validate error message is correct
-    Wait Until Element Contains    ${errorMsgCss}    Incorrect username/password.
+Validate successful login
+    Fill login form    ${validUsername}    ${validPassword}
+    Wait until "Checkout" button is displayed
