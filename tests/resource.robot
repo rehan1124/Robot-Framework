@@ -1,6 +1,7 @@
 *** Settings ***
 Documentation    A file with all reusable Keywords and Variables
 Library    SeleniumLibrary
+Library    Collections
 
 *** Variables ***
 ${appUrl}    https://rahulshettyacademy.com/loginpagePractise/
@@ -10,6 +11,7 @@ ${termsCheckboxId}    id:terms
 ${signInBtnId}    id:signInBtn
 ${errorMsgCss}    css:form[id='login-form'] [class*='alert alert-danger']
 ${checkoutXpath}    xpath://a[contains(text(), 'Checkout')]
+${itemCards}    css:app-card-list h4[class='card-title']
 
 *** Keywords ***
 Open browser with app url
@@ -37,3 +39,15 @@ Close application
 
 Wait until "Checkout" button is displayed
     Wait Until Element Is Visible    ${checkoutXpath}
+
+Validate items present in the app
+    [Arguments]    ${item1}    ${item2}    ${item3}    ${item4}
+    @{expectedItems}=    Create List    ${item1}    ${item2}    ${item3}    ${item4}
+    ${actualItems}=    Get Webelements    ${itemCards}
+    @{actualItemTitle}=    Create List    
+    FOR    ${items}    IN    @{actualItems}
+        ${itemTitle}=    Get Text   ${items}
+        Log    ${itemTitle}
+        Append To List    ${actualItemTitle}    ${itemTitle}
+    END
+    Lists Should Be Equal    ${expectedItems}    ${actualItemTitle}
