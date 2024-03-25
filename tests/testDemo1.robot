@@ -14,15 +14,15 @@ ${validPassword}    learning
 ${errorMessage}    Incorrect username/password.
 
 *** Test Cases ***
-#Validate unsuccessful login
-#    Fill login form    ${invalidUsername}    ${invalidPassword}
-#    Wait until it checks and displays error message
-#    Validate error message is correct    ${errorMessage}
+Validate unsuccessful login
+    Fill login form    ${invalidUsername}    ${invalidPassword}
+    Wait until it checks and displays error message
+    Validate error message is correct    ${errorMessage}
 
-#Validate successful login
-#    Fill login form    ${validUsername}    ${validPassword}
-#    Wait until "Checkout" button is displayed
-#    Validate items present in the app    iphone X    Samsung Note 8    Nokia Edge    Blackberry
+Validate successful login
+    Fill login form    ${validUsername}    ${validPassword}
+    Wait until "Checkout" button is displayed
+    Validate items present in the app    iphone X    Samsung Note 8    Nokia Edge    Blackberry
 
 Validate items can be added to cart
     Fill login form    ${validUsername}    ${validPassword}
