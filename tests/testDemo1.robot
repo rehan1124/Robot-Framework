@@ -19,7 +19,15 @@ ${errorMessage}    Incorrect username/password.
 #    Wait until it checks and displays error message
 #    Validate error message is correct    ${errorMessage}
 
-Validate successful login
+#Validate successful login
+#    Fill login form    ${validUsername}    ${validPassword}
+#    Wait until "Checkout" button is displayed
+#    Validate items present in the app    iphone X    Samsung Note 8    Nokia Edge    Blackberry
+
+Validate items can be added to cart
     Fill login form    ${validUsername}    ${validPassword}
     Wait until "Checkout" button is displayed
-    Validate items present in the app    iphone X    Samsung Note 8    Nokia Edge    Blackberry
+    Add items to cart    Blackberry
+    Validate products added in cart    1
+    Add items to cart    Nokia Edge
+    Validate products added in cart    2
