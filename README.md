@@ -4,3 +4,6 @@
 
 * Run tests with command `robot -d Reports tests`. This will create a new directory `Reports` where output files will be
   stored.
+
+* Framework supports taking screenshot for each and every step using `Take Screenshot` keyword. Image file is attached
+  to relevant step automatically in `Reports` file.

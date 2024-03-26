@@ -14,6 +14,8 @@ ${errorMsgCss}    css:form[id='login-form'] [class*='alert alert-danger']
 ${checkoutXpath}    xpath://a[contains(text(), 'Checkout')]
 ${itemCards}    css:app-card-list h4[class='card-title']
 ${navbar}    xpath://div[@id='navbarResponsive']
+${userCategoryXpath}    css:select.form-control
+${popupOkayBtnId}    css:button#okayBtn
 
 *** Keywords ***
 Open browser with app url
@@ -22,6 +24,7 @@ Open browser with app url
     Go To    ${appUrl}
     Maximize Browser Window
     Take Screenshot
+    Set Browser Implicit Wait    10s
 
 Fill login form
     [Arguments]    ${username}    ${password}
@@ -70,3 +73,32 @@ Validate products added in cart
     Element Should Be Visible    ${navbar}//a[contains(text(), 'Checkout ( ${itemCount} )')]
     Scroll Element Into View    ${navbar}//a[contains(text(), 'Checkout ( ${itemCount} )')]
     Take Screenshot
+
+Enter user credentials
+    [Arguments]    ${username}    ${password}
+    Input Text    ${usernameId}    ${username}
+    Input Password    ${passwordId}    ${password}
+    Take Screenshot
+    
+Select user type
+    [Arguments]    ${type}
+    Click Element    xpath://span[contains(text(), '${type}')]/..//span[@class='checkmark']
+    Wait Until Element Is Visible    ${popupOkayBtnId}
+    Sleep    5s
+    Click Button    ${popupOkayBtnId}
+    Take Screenshot
+
+Select user category
+    [Arguments]    ${category}
+    IF    '${category}' == 'Consultant'
+        Select From List By Value    ${userCategoryXpath}    consult
+    ELSE IF    '${category}' == 'Student'
+        Select From List By Value    ${userCategoryXpath}    stud
+    ELSE IF    '${category}' == 'Teacher'
+        Select From List By Value    ${userCategoryXpath}    teach
+    END
+    Take Screenshot
+
+Click "Sign In" button
+    Click Button    ${signInBtnId}
+    Take Screenshot    

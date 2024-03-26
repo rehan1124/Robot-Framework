@@ -31,3 +31,10 @@ Validate items can be added to cart
     Validate products added in cart    1
     Add items to cart    Nokia Edge
     Validate products added in cart    2
+
+Validate login with type "User"
+    Enter user credentials    ${validUsername}    ${validPassword}
+    Select user type    User
+    Select user category    Teacher
+    Click "Sign In" button
+    Wait until "Checkout" button is displayed
