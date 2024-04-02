@@ -7,3 +7,7 @@
 
 * Framework supports taking screenshot for each and every step using `Take Screenshot` keyword. Image file is attached
   to relevant step automatically in `Reports` file.
+
+* Documentation
+  for [SeleniumLibrary](https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html#library-documentation-top) can
+  be found here

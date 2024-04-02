@@ -16,6 +16,8 @@ ${itemCards}    css:app-card-list h4[class='card-title']
 ${navbar}    xpath://div[@id='navbarResponsive']
 ${userCategoryXpath}    css:select.form-control
 ${popupOkayBtnId}    css:button#okayBtn
+${courseMaterialPartialLinkText}    partial link:Free Access to InterviewQues
+${mentorEmailCss}    css:p[class*='red'] a[href*='mailto']
 
 *** Keywords ***
 Open browser with app url
@@ -101,4 +103,29 @@ Select user category
 
 Click "Sign In" button
     Click Button    ${signInBtnId}
-    Take Screenshot    
+    Take Screenshot
+
+Click on "Free Access to InterviewQues ..." link
+    Wait Until Element Is Visible    ${courseMaterialPartialLinkText}
+    Click Element    ${courseMaterialPartialLinkText}
+    Switch Window    NEW
+    Take Screenshot
+
+Validate user is on "RS Academy" page
+    [Arguments]    ${pageTitle}
+    Title Should Be    ${pageTitle}
+    Take Screenshot
+
+Validate mentor email present on page
+    [Arguments]    ${email}
+    Wait Until Element Is Visible    ${mentorEmailCss}
+    Scroll Element Into View    ${mentorEmailCss}
+    Sleep    5s
+    Element Text Should Be    ${mentorEmailCss}    ${email}
+    Take Screenshot
+
+Validate user can navigate back to main page
+    [Arguments]    ${pageTitle}
+    Switch Window    MAIN
+    Title Should Be    ${pageTitle}
+    Take Screenshot
