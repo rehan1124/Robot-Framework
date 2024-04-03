@@ -11,3 +11,8 @@
 * Documentation
   for [SeleniumLibrary](https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html#library-documentation-top) can
   be found here
+
+* Documentation
+  for [BuiltIn library](https://robotframework.org/robotframework/latest/libraries/BuiltIn.html#library-documentation-top)
+  can
+  be found here
