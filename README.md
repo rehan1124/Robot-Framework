@@ -14,5 +14,7 @@
 
 * Documentation
   for [BuiltIn library](https://robotframework.org/robotframework/latest/libraries/BuiltIn.html#library-documentation-top)
-  can
-  be found here
+  can be found here
+
+* To know more about data-driven testing using csv files, check test `testCsvDataDriven.robot`. Execute it with
+  command `robot -d Reports .\tests\testCsvDataDriven.robot`
