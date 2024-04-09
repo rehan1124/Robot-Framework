@@ -5,57 +5,57 @@ Library    Collections
 Library    Screenshot
 
 *** Variables ***
-${appUrl}    https://rahulshettyacademy.com/loginpagePractise/
-${usernameId}    id:username
-${passwordId}    id:password
-${termsCheckboxId}    id:terms
-${signInBtnId}    id:signInBtn
-${errorMsgCss}    css:form[id='login-form'] [class*='alert alert-danger']
-${checkoutXpath}    xpath://a[contains(text(), 'Checkout')]
-${itemCards}    css:app-card-list h4[class='card-title']
+${app_url}    https://rahulshettyacademy.com/loginpagePractise/
+${username_id}    id:username
+${password_id}    id:password
+${terms_checkbox_id}    id:terms
+${signin_btn_id}    id:signInBtn
+${errormsg_css}    css:form[id='login-form'] [class*='alert alert-danger']
+${checkout_xpath}    xpath://a[contains(text(), 'Checkout')]
+${item_cards}    css:app-card-list h4[class='card-title']
 ${navbar}    xpath://div[@id='navbarResponsive']
-${userCategoryXpath}    css:select.form-control
-${popupOkayBtnId}    css:button#okayBtn
-${courseMaterialPartialLinkText}    partial link:Free Access to InterviewQues
-${mentorEmailCss}    css:p[class*='red'] a[href*='mailto']
+${user_category_xpath}    css:select.form-control
+${popup_okaybtn_id}    css:button#okayBtn
+${course_material_partiallinktext}    partial link:Free Access to InterviewQues
+${mentor_email_css}    css:p[class*='red'] a[href*='mailto']
 
 *** Keywords ***
 Open browser with app url
     [Arguments]    ${browser}
     Create Webdriver    ${browser}
-    Go To    ${appUrl}
+    Go To    ${app_url}
     Maximize Browser Window
     Take Screenshot
     Set Browser Implicit Wait    10s
 
 Fill login form
     [Arguments]    ${username}    ${password}
-    Input Text    ${usernameId}    ${username}
-    Input Password    ${passwordId}    ${password}
-    Select Checkbox    ${termsCheckboxId}
-    Click Button    ${signInBtnId}
+    Input Text    ${username_id}    ${username}
+    Input Password    ${password_id}    ${password}
+    Select Checkbox    ${terms_checkbox_id}
+    Click Button    ${signin_btn_id}
     Take Screenshot
 
 Wait until it checks and displays error message
-    Wait Until Element Is Visible    ${errorMsgCss}
+    Wait Until Element Is Visible    ${errormsg_css}
     Take Screenshot
 
 Validate error message is correct
     [Arguments]    ${errorMessage}
-    Wait Until Element Contains    ${errorMsgCss}    ${errorMessage}
+    Wait Until Element Contains    ${errormsg_css}    ${errorMessage}
     Take Screenshot
 
 Close application
     Close Browser
 
 Wait until "Checkout" button is displayed
-    Wait Until Element Is Visible    ${checkoutXpath}
+    Wait Until Element Is Visible    ${checkout_xpath}
     Take Screenshot
 
 Validate items present in the app
     [Arguments]    ${item1}    ${item2}    ${item3}    ${item4}
     @{expectedItems}=    Create List    ${item1}    ${item2}    ${item3}    ${item4}
-    ${actualItems}=    Get Webelements    ${itemCards}
+    ${actualItems}=    Get Webelements    ${item_cards}
     @{actualItemTitle}=    Create List    
     FOR    ${items}    IN    @{actualItems}
         ${itemTitle}=    Get Text   ${items}
@@ -78,36 +78,36 @@ Validate products added in cart
 
 Enter user credentials
     [Arguments]    ${username}    ${password}
-    Input Text    ${usernameId}    ${username}
-    Input Password    ${passwordId}    ${password}
+    Input Text    ${username_id}    ${username}
+    Input Password    ${password_id}    ${password}
     Take Screenshot
     
 Select user type
     [Arguments]    ${type}
     Click Element    xpath://span[contains(text(), '${type}')]/..//span[@class='checkmark']
-    Wait Until Element Is Visible    ${popupOkayBtnId}
+    Wait Until Element Is Visible    ${popup_okaybtn_id}
     Sleep    5s
-    Click Button    ${popupOkayBtnId}
+    Click Button    ${popup_okaybtn_id}
     Take Screenshot
 
 Select user category
     [Arguments]    ${category}
     IF    '${category}' == 'Consultant'
-        Select From List By Value    ${userCategoryXpath}    consult
+        Select From List By Value    ${user_category_xpath}    consult
     ELSE IF    '${category}' == 'Student'
-        Select From List By Value    ${userCategoryXpath}    stud
+        Select From List By Value    ${user_category_xpath}    stud
     ELSE IF    '${category}' == 'Teacher'
-        Select From List By Value    ${userCategoryXpath}    teach
+        Select From List By Value    ${user_category_xpath}    teach
     END
     Take Screenshot
 
 Click "Sign In" button
-    Click Button    ${signInBtnId}
+    Click Button    ${signin_btn_id}
     Take Screenshot
 
 Click on "Free Access to InterviewQues ..." link
-    Wait Until Element Is Visible    ${courseMaterialPartialLinkText}
-    Click Element    ${courseMaterialPartialLinkText}
+    Wait Until Element Is Visible    ${course_material_partiallinktext}
+    Click Element    ${course_material_partiallinktext}
     Switch Window    NEW
     Take Screenshot
 
@@ -118,10 +118,10 @@ Validate user is on "RS Academy" page
 
 Validate mentor email present on page
     [Arguments]    ${email}
-    Wait Until Element Is Visible    ${mentorEmailCss}
-    Scroll Element Into View    ${mentorEmailCss}
+    Wait Until Element Is Visible    ${mentor_email_css}
+    Scroll Element Into View    ${mentor_email_css}
     Sleep    5s
-    Element Text Should Be    ${mentorEmailCss}    ${email}
+    Element Text Should Be    ${mentor_email_css}    ${email}
     Take Screenshot
 
 Validate user can navigate back to main page

@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation    Demonstrate data-driven testing using CSV file
 Library    SeleniumLibrary
-Library    DataDriver    file=testData/testCsvDataDriven.csv    encoding=utf_8    dialect=unix
+Library    DataDriver    file=test_data/test_csv_data_driven.csv    encoding=utf_8    dialect=unix
 Resource    resource.robot
 Test Setup    Open browser with app url    ${browser}
 Test Teardown    Close application

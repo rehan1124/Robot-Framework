@@ -16,5 +16,8 @@
   for [BuiltIn library](https://robotframework.org/robotframework/latest/libraries/BuiltIn.html#library-documentation-top)
   can be found here
 
-* To know more about data-driven testing using csv files, check test `testCsvDataDriven.robot`. Execute it with
-  command `robot -d Reports .\tests\testCsvDataDriven.robot`
+* To know more about data-driven testing using csv files, check test `test_csv_data_driven.robot`. Execute it with
+  command `robot -d Reports .\tests\test_csv_data_driven.robot.robot`
+
+* To see the flavor of having custom keywords defined fitting to automation purpose, check
+  test/files `tests/test_user_defined_keywords.robot` & `user_defined_lib/UserDefinedFuncs.py`
