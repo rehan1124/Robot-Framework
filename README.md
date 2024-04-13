@@ -21,3 +21,5 @@
 
 * To see the flavor of having custom keywords defined fitting to automation purpose, check
   test/files `tests/test_user_defined_keywords.robot` & `user_defined_lib/UserDefinedFuncs.py`
+
+* Parallel run is achieved through [Pabot](https://pabot.org/) plugin. Read more about it to get better info.
