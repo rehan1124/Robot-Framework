@@ -1,7 +1,9 @@
 *** Settings ***
 Documentation    Test to validate Login page
 Library    SeleniumLibrary
-Resource    resource.robot
+Resource    ../shared_keywords/shared.robot
+Resource    ../pages/login.robot
+Resource    ../pages/home.robot
 Test Setup    Open browser with app url    ${browser}
 Test Teardown    Close application
 
