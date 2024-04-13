@@ -2,7 +2,7 @@
 Documentation    Tests with user-defined keywords
 Library    SeleniumLibrary
 Library    Screenshot
-Library    ../user_defined_lib/UserDefinedFuncs.py
+Library    ../user_defined_lib/HomePage.py
 Resource    ../shared_keywords/shared.robot
 Resource    ../pages/login.robot
 Resource    ../pages/home.robot

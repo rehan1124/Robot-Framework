@@ -3,7 +3,7 @@ from robot.libraries.BuiltIn import BuiltIn
 
 
 @library
-class UserDefinedFuncs:
+class HomePage:
 
     def __init__(self):
         self.sel_lib = BuiltIn().get_library_instance("SeleniumLibrary")
