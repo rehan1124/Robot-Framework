@@ -9,7 +9,7 @@ Test Teardown    Close application
 Test Template    Validate unsuccessful login
 
 *** Variables ***
-${browser}    Chrome
+${browser}    Google Chrome
 ${errorMessage}    Incorrect username/password.
 
 *** Keywords ***

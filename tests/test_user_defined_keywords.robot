@@ -10,7 +10,7 @@ Test Setup    Open browser with app url    ${browser}
 Test Teardown    Close application
 
 *** Variables ***
-${browser}    Chrome
+${browser}    Headless Chrome
 ${validUsername}    rahulshettyacademy
 ${validPassword}    learning
 @{items_list}    Blackberry    Nokia Edge

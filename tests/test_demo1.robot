@@ -8,7 +8,7 @@ Test Setup    Open browser with app url    ${browser}
 Test Teardown    Close application
 
 *** Variables ***
-${browser}    Chrome
+${browser}    Headless Chrome
 ${invalidUsername}    testuser1
 ${invalidPassword}    testuser1
 ${validUsername}    rahulshettyacademy

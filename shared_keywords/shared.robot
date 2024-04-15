@@ -10,8 +10,7 @@ ${app_url}    https://rahulshettyacademy.com/loginpagePractise/
 *** Keywords ***
 Open browser with app url
     [Arguments]    ${browser}
-    Create Webdriver    ${browser}
-    Go To    ${app_url}
+    Open Browser    url=${app_url}    browser=${browser}
     Maximize Browser Window
     Take Screenshot
     Set Browser Implicit Wait    10s

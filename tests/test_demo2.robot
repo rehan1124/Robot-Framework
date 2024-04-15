@@ -8,7 +8,7 @@ Test Setup    Open browser with app url    ${browser}
 Test Teardown    Close application
 
 *** Variables ***
-${browser}    Chrome
+${browser}    Headless Chrome
 ${mentorEmail}    mentor@rahulshettyacademy.com
 ${mainPageTitle}    LoginPage Practise | Rahul Shetty Academy
 ${rsAcademyTitle}    RS Academy
