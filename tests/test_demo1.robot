@@ -22,11 +22,13 @@ Validate unsuccessful login
     Validate error message is correct    ${errorMessage}
 
 Validate successful login
+    [Tags]    Smoke
     Fill login form    ${validUsername}    ${validPassword}
     Wait until "Checkout" button is displayed
     Validate items present in the app    iphone X    Samsung Note 8    Nokia Edge    Blackberry
 
 Validate items can be added to cart
+    [Tags]    Smoke
     Fill login form    ${validUsername}    ${validPassword}
     Wait until "Checkout" button is displayed
     Add items to cart    Blackberry

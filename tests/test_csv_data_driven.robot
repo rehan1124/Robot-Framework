@@ -24,3 +24,4 @@ Validate unsuccessful login
 
 *** Test Cases ***
 Failed login with ${username} and ${password}    testuser1    learning
+    [Tags]    Regression

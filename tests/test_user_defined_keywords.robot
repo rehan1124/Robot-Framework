@@ -10,13 +10,14 @@ Test Setup    Open browser with app url    ${browser}
 Test Teardown    Close application
 
 *** Variables ***
-${browser}    Headless Chrome
+${browser}    Chrome
 ${validUsername}    rahulshettyacademy
 ${validPassword}    learning
 @{items_list}    Blackberry    Nokia Edge
 
 *** Test Cases ***
 Validate multiple items can be added to cart
+    [Tags]    Smoke
     Fill login form    ${validUsername}    ${validPassword}
     Wait until "Checkout" button is displayed
     Add Multiple Items To Cart    ${items_list}

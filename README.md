@@ -29,3 +29,9 @@ pabot -d Reports .
 ```
 
 * Run using test name `robot -d Reports -t "Validate unsuccessful login" ./tests`
+
+* For tag-based run `robot -d Reports --include "Smoke" .`
+
+* Multiple tags for tests `robot -d Reports --include "SmokeORRegression" .`
+
+* Running only failed tests `robot -d Reports --rerunfailed ./Reports/output.xml .`
