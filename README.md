@@ -35,3 +35,5 @@ pabot -d Reports .
 * Multiple tags for tests `robot -d Reports --include "SmokeORRegression" .`
 
 * Running only failed tests `robot -d Reports --rerunfailed ./Reports/output.xml .`
+
+* Pass arguments from command line `pabot -d Reports --variable browser:"Headless Chrome" .`

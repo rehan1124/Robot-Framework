@@ -4,11 +4,10 @@ Library    SeleniumLibrary
 Resource    ../shared_keywords/shared.robot
 Resource    ../pages/login.robot
 Resource    ../pages/home.robot
-Test Setup    Open browser with app url    ${browser}
+Test Setup    Open browser with app url
 Test Teardown    Close application
 
 *** Variables ***
-${browser}    Headless Chrome
 ${mentorEmail}    mentor@rahulshettyacademy.com
 ${mainPageTitle}    LoginPage Practise | Rahul Shetty Academy
 ${rsAcademyTitle}    RS Academy

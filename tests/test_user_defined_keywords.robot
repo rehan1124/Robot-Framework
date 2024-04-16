@@ -6,11 +6,10 @@ Library    ../user_defined_lib/HomePage.py
 Resource    ../shared_keywords/shared.robot
 Resource    ../pages/login.robot
 Resource    ../pages/home.robot
-Test Setup    Open browser with app url    ${browser}
+Test Setup    Open browser with app url
 Test Teardown    Close application
 
 *** Variables ***
-${browser}    Chrome
 ${validUsername}    rahulshettyacademy
 ${validPassword}    learning
 @{items_list}    Blackberry    Nokia Edge

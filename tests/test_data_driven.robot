@@ -3,12 +3,11 @@ Documentation    Demonstrate data-driven testing or parameterization
 Library    SeleniumLibrary
 Resource    ../pages/login.robot
 Resource    ../shared_keywords/shared.robot
-Test Setup    Open browser with app url    ${browser}
+Test Setup    Open browser with app url
 Test Teardown    Close application
 Test Template    Validate unsuccessful login
 
 *** Variables ***
-${browser}    Headless Chrome
 ${errorMessage}    Incorrect username/password.
 
 *** Keywords ***
