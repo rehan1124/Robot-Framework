@@ -23,6 +23,9 @@
   test/files `tests/test_user_defined_keywords.robot` & `user_defined_lib/UserDefinedFuncs.py`
 
 * Parallel run is achieved through [Pabot](https://pabot.org/) plugin. Read more about it to get better info.
+
 ```commandline
 pabot -d Reports .
 ```
+
+* Run using test name `robot -d Reports -t "Validate unsuccessful login" ./tests`
