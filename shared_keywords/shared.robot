@@ -7,6 +7,7 @@ Library    Screenshot
 *** Variables ***
 ${app_url}    https://rahulshettyacademy.com/loginpagePractise/
 ${browser}    Chrome
+${api_url}    http://216.10.245.166
 
 *** Keywords ***
 Open browser with app url
