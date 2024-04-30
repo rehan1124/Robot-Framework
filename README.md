@@ -37,3 +37,8 @@ pabot -d Reports .
 * Running only failed tests `robot -d Reports --rerunfailed ./Reports/output.xml .`
 
 * Pass arguments from command line `pabot -d Reports --variable browser:"Headless Chrome" .`
+
+* Support for API testing is also added. Check folder/directory `api/test_api.robot`.
+```commandline
+robot -d Reports .\api\test_api.robot
+```
