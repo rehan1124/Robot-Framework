@@ -12,7 +12,7 @@ Resource    api_shared.robot
 #    Log Dictionary    ${dict1}
 
 Validate user is able to add new book
-    [Tags]    ADD_BOOKS
+    [Tags]    API    ADD_BOOKS
     ${book_author}=    FakerLibrary.Name
     ${book_name}=    Catenate    Book by    ${book_author}
     ${book_isbn}=    FakerLibrary.Isbn 10
@@ -26,7 +26,7 @@ Validate user is able to add new book
     Validate value is present    ${response.json()}    ${book_id}
 
 Validate user is able to get book details
-    [Tags]    GET_BOOK
+    [Tags]    API    GET_BOOK
     ${book_author}=    FakerLibrary.Name
     ${book_name}=    Catenate    Book by    ${book_author}
     ${book_isbn}=    FakerLibrary.Isbn 10
@@ -41,3 +41,14 @@ Validate user is able to get book details
     ${book_aisle_str}=    Convert To String    ${book_aisle}
     Validate value is present    ${response.json()[0]}    ${book_aisle_str}
 
+Validate user is able to delete the book
+    [Tags]    API    DELETE_BOOK
+    ${book_author}=    FakerLibrary.Name
+    ${book_name}=    Catenate    Book by    ${book_author}
+    ${book_isbn}=    FakerLibrary.Isbn 10
+    ${book_aisle}=    FakerLibrary.Random Number    digits=6
+    &{book}=    Create Dictionary    name=${book_name}    isbn=${book_isbn}    aisle=${book_aisle}    author=${book_author}
+    ${response}=    Add a new book    ${book}    200
+    ${book_id}    Create Dictionary    ID=${response.json()}[ID]
+    ${response}=    Delete book by ID    ${book_id}    200
+    Validate given 2 string values are equal    ${response.json()}[msg]    book is successfully deleted
